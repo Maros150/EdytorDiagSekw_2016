@@ -45,8 +45,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/return"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//FunctionBlock/functionName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/arguments"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/functionDef"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//FunctionBlock/isDef"/>
     </genClasses>
     <genClasses ecoreClass="edytorModel.ecore#//Argument">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//Argument/name"/>
@@ -54,13 +52,6 @@
     </genClasses>
     <genClasses ecoreClass="edytorModel.ecore#//FunctionDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionDefinition/functions"/>
-    </genClasses>
-    <genClasses ecoreClass="edytorModel.ecore#//Class">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Class/functionsdefinition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Class/functionblocks"/>
-    </genClasses>
-    <genClasses ecoreClass="edytorModel.ecore#//Actor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Actor/operationsqueue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
