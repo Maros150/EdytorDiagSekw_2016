@@ -1,0 +1,7 @@
+package edytor.diagram;
+
+import org.eclipse.graphiti.ui.platform.AbstractImageProvider;
+
+public class EditorImageProvider   extends AbstractImageProvider {
+
+}

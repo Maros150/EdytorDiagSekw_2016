@@ -1,0 +1,14 @@
+package settings;
+
+import org.eclipse.graphiti.util.IColorConstant;
+
+public class Helper {
+    protected static final IColorConstant TEXT_FOREGROUND_CLASS = IColorConstant.BLACK; 
+    protected static final int TEXT_HIGHT_CLASS = 40;
+    protected static final int IMG_WIDTH_CLASS = 110;
+    protected static final int IMG_HIGHT_CLASS = 110; 
+    
+    
+    
+    
+}

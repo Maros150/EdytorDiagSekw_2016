@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.tb.IToolBehaviorProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.tb.DefaultToolBehaviorProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.dt.IDiagramTypeProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.IReconnectionFeature"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.context.IReconnectionContext"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.mm.pictograms.Connection"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.IDeleteFeature"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.context.IDeleteContext"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.mm.pictograms.PictogramElement"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.IDirectEditingFeature"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.context.IDirectEditingContext"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.EObject"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.ui.platform.AbstractImageProvider"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.eclipse.core.resources.IFile"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.eclipse.core.resources.IProject"/>
+<fullyQualifiedTypeName name="org.eclipse.core.resources.IContainer"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.resource.ResourceSet"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.resource.impl.ResourceSetImpl"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.util.IColorConstant"/>
+<fullyQualifiedTypeName name="edytorModel.Actor"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.mm.pictograms.Diagram"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.pattern.AbstractPattern"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.pattern.IPattern"/>
+<fullyQualifiedTypeName name="edytor.diagram.EditorImageProvider"/>
+<fullyQualifiedTypeName name="edytorModel.EdytorModelFactory"/>
+<fullyQualifiedTypeName name="settings.Helper"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.context.ILayoutContext"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.mm.algorithms.GraphicsAlgorithm"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.IReason"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.context.IUpdateContext"/>
+<fullyQualifiedTypeName name="edytorModel.Class"/>
+<fullyQualifiedTypeName name="org.eclipse.graphiti.features.impl.Reason"/>
+<fullyQualifiedTypeName name="edytor.features.ClassPattern"/>
+</qualifiedTypeNameHistroy>

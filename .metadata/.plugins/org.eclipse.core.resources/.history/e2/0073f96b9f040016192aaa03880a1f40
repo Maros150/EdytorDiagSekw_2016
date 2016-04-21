@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/EdytorModel/src" modelPluginID="EdytorModel" modelName="EdytorModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>edytorModel.ecore</foreignModel>
+  <genPackages prefix="EdytorModel" disposableProviderFactory="true" ecorePackage="edytorModel.ecore#/">
+    <genClasses ecoreClass="edytorModel.ecore#//Operation"/>
+    <genClasses ecoreClass="edytorModel.ecore#//Loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Loop/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Loop/end"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Loop/step"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Loop/operationsqueue"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//If">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//If/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//If/elseifqueue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//If/else"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//If/operationsqueue"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//Code/code"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//ElseIf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//ElseIf/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//ElseIf/operationsqueue"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//OperationsQueueElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//OperationsQueueElement/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//OperationsQueueElement/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//ElseiFQueueElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//ElseiFQueueElement/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//ElseiFQueueElement/elseif"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//Else">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Else/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Else/operationsqueue"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//CodeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//CodeBlock/code"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//FunctionBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/operationsqueue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/return"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//FunctionBlock/functionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/arguments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionBlock/functionDef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//FunctionBlock/isDef"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//Argument/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Argument/value"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//FunctionDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//FunctionDefinition/functions"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//Class">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Class/functionsdefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Class/functionblocks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Class/extends"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edytorModel.ecore#//Class/isThread"/>
+    </genClasses>
+    <genClasses ecoreClass="edytorModel.ecore#//Actor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference edytorModel.ecore#//Actor/operationsqueue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

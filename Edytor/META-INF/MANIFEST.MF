@@ -3,7 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Edytor
 Bundle-SymbolicName: Edytor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.graphiti,
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.graphiti,
  org.eclipse.graphiti.ui,
- org.eclipse.graphiti.pattern
+ org.eclipse.graphiti.pattern,
+ org.eclipse.graphiti.mm,
+ org.eclipse.core.resources,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.gef,
+ org.eclipse.emf.transaction,
+ EdytorModel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,86 @@
+package edytorapp.command;
+
+import java.io.File;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.graphiti.examples.common.FileService;
+import org.eclipse.graphiti.mm.pictograms.Diagram;
+import org.eclipse.graphiti.services.Graphiti;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+
+public class New implements IHandler{
+	@Override
+	public void addHandlerListener(IHandlerListener handlerListener) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+
+	}
+	private static String diagramEditorId="org.eclipse.graphiti.ui.editor.DiagramEditor";//you should read this two from your plugin xml file
+	private static String diagramTypeId ="editor";//ive find out how i can open it in graphiti examples
+
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+        
+		
+
+		String path = URI.createURI(Platform.getInstallLocation().getURL().getPath().toString()).path();
+		FileDialog dialog = new FileDialog(Display.getCurrent().getActiveShell());
+		   dialog.setOverwrite(false);
+		   dialog.setFileName("new_diagram");
+		   dialog.setFilterPath(path);
+		   dialog.open();
+		
+		String choosenDiagram = new String(dialog.getFilterPath() + File.separator + dialog.getFileName());	   
+        System.out.println(choosenDiagram);
+        
+    	final Diagram diagram = Graphiti.getCreateService().createDiagram(diagramTypeId, choosenDiagram, true);
+    	//Create an Graphiti File on given path
+    	URI fileURI = URI.createFileURI(choosenDiagram + ".diagram");
+    	FileService.createEmfFileForDiagram(fileURI, diagram);
+    	//Open this Created file in Graphiti Editor
+    	
+    	URIEditorInput editorInput = new URIEditorInput(fileURI);
+        
+        try {
+        	if(editorInput.exists())
+              page.openEditor(editorInput, diagramEditorId);
+              
+        } catch (PartInitException e) {
+              
+        }
+        
+	return null;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	@Override
+	public boolean isHandled() {
+		return true;
+	}
+
+	@Override
+	public void removeHandlerListener(IHandlerListener handlerListener) {
+		// TODO Auto-generated method stub
+
+	}
+}

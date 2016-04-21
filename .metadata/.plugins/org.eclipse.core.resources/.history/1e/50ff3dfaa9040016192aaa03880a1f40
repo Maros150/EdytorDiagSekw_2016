@@ -1,0 +1,28 @@
+package edytor.features;
+
+import org.eclipse.graphiti.mm.pictograms.PictogramElement;
+import org.eclipse.graphiti.pattern.AbstractPattern;
+import org.eclipse.graphiti.pattern.IPattern;
+
+
+
+public class ClassPattern extends AbstractPattern implements IPattern{
+
+	@Override
+	public boolean isMainBusinessObjectApplicable(Object mainBusinessObject) {
+		return mainBusinessObject instanceof edytorModel.Class;
+	}
+
+	@Override
+	protected boolean isPatternControlled(PictogramElement pictogramElement) {
+		Object domainObject = getBusinessObjectForPictogramElement(pictogramElement);
+		return isMainBusinessObjectApplicable(domainObject);
+	}
+
+	@Override
+	protected boolean isPatternRoot(PictogramElement pictogramElement) {
+		Object domainObject = getBusinessObjectForPictogramElement(pictogramElement);
+		return isMainBusinessObjectApplicable(domainObject);
+	}
+
+}

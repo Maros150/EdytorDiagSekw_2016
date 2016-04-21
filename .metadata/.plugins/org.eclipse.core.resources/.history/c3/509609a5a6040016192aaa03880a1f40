@@ -1,0 +1,13 @@
+package edytor.diagram;
+
+import org.eclipse.graphiti.dt.IDiagramTypeProvider;
+import org.eclipse.graphiti.tb.DefaultToolBehaviorProvider;
+
+public class EdytorToolBehaviorProvider extends DefaultToolBehaviorProvider{
+	public EdytorToolBehaviorProvider(IDiagramTypeProvider dtp) {
+        super(dtp);
+   }
+	
+	
+	
+}

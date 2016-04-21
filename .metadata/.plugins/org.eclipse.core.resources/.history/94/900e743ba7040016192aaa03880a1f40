@@ -1,0 +1,74 @@
+package edytor.diagram;
+
+import org.eclipse.graphiti.dt.IDiagramTypeProvider;
+import org.eclipse.graphiti.features.IAddFeature;
+import org.eclipse.graphiti.features.ICreateConnectionFeature;
+import org.eclipse.graphiti.features.IDeleteFeature;
+import org.eclipse.graphiti.features.IReconnectionFeature;
+import org.eclipse.graphiti.features.context.IAddConnectionContext;
+import org.eclipse.graphiti.features.context.IAddContext;
+import org.eclipse.graphiti.features.context.IDeleteContext;
+import org.eclipse.graphiti.features.context.IReconnectionContext;
+import org.eclipse.graphiti.mm.pictograms.Connection;
+import org.eclipse.graphiti.mm.pictograms.PictogramElement;
+import org.eclipse.graphiti.pattern.DefaultFeatureProviderWithPatterns;
+
+import edytor.features.AddDomainObjectConnectionConnectionFeature;
+import edytor.features.CreateDomainObjectConnectionConnectionFeature;
+import edytor.patterns.DomainObjectPattern;
+
+
+public class EdytorFeatureProvider extends DefaultFeatureProviderWithPatterns {
+
+	public EdytorFeatureProvider(IDiagramTypeProvider dtp) {
+		super(dtp);
+		//addPattern(new DomainObjectPattern());
+		//addConnectionPattern(new MetaDataConnectionPattern());
+	}
+
+	
+	 @Override
+	    public IReconnectionFeature getReconnectionFeature(IReconnectionContext context) {
+				Connection connection = (Connection) context.getConnection();
+				Object sourceElement = getBusinessObjectForPictogramElement(connection.getStart().getParent());
+				Object targetElement = getBusinessObjectForPictogramElement(connection.getEnd().getParent());
+				
+			/*	if ((sourceElement instanceof Container) && (targetElement instanceof Data))
+					return new ContainerToDataReconnectFeature(this);
+				else if((sourceElement instanceof Data) && (targetElement instanceof Data))
+			        return new DataReconnectFeature(this);
+				else*/
+					return super.getReconnectionFeature(context);
+	 }
+	
+	   @Override
+	    public IDeleteFeature getDeleteFeature(IDeleteContext context) {
+			PictogramElement pictogramElement = context.getPictogramElement();
+	    	if(pictogramElement instanceof Connection){
+				Connection connection = (Connection) pictogramElement;
+				Object sourceElement = getBusinessObjectForPictogramElement(connection.getStart().getParent());
+				Object targetElement = getBusinessObjectForPictogramElement(connection.getEnd().getParent());
+				
+			/*	if ((sourceElement instanceof Data) && (targetElement instanceof Data))
+					return new DataDeleteConnectionFeature(this);
+				else if((sourceElement instanceof Container) && (targetElement instanceof Data))
+					return new ContainerToDataDeleteFeature(this);
+			*/
+	    	}
+	    	return super.getDeleteFeature(context);
+	    }	
+	
+	@Override
+	public ICreateConnectionFeature[] getCreateConnectionFeatures() {
+		return new ICreateConnectionFeature[] {new CreateDomainObjectConnectionConnectionFeature(this)};
+	}
+	
+	@Override
+	public IAddFeature getAddFeature(IAddContext context) {
+		// TODO: check for right domain object instances below
+		if (context instanceof IAddConnectionContext /* && context.getNewObject() instanceof DomainObjectConnection */) {
+			return new AddDomainObjectConnectionConnectionFeature(this);
+		}
+		return super.getAddFeature(context);
+	}
+}

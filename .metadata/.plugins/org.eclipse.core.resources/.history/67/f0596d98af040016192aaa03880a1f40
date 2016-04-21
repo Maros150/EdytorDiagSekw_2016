@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            name="Edytor Diagram Type"
+            type="Edytor"
+            id="Edytor.EdytorDiagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            name="Edytor Diagram Type Provider"
+            class="edytor.diagram.EdytorDiagramTypeProvider"
+            id="Edytor.EdytorDiagramTypeProvider">
+         <diagramType
+               id="Edytor.EdytorDiagramType">
+         </diagramType>
+         <imageProvider
+            id="edytor.diagram.EditorImageProvider">
+      	</imageProvider>
+      </diagramTypeProvider>
+   </extension>
+	<extension
+		point="org.eclipse.graphiti.ui.imageProviders">
+		<imageProvider
+		     class="edytor.diagram.EditorImageProvider"
+		     id="edytor.diagram.EditorImageProvider">
+		</imageProvider>
+	</extension> 
+	 <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.graphiti.ui.platform.GraphitiShapeEditPart"
+            class="dwarm.editor.property.EditorPropertiesTabSection">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+   </extension>
+</plugin>

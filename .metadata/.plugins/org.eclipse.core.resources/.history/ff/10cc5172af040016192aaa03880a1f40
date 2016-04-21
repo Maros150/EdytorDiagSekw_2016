@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            name="Edytor Diagram Type"
+            type="Edytor"
+            id="Edytor.EdytorDiagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            name="Edytor Diagram Type Provider"
+            class="edytor.diagram.EdytorDiagramTypeProvider"
+            id="Edytor.EdytorDiagramTypeProvider">
+         <diagramType
+               id="Edytor.EdytorDiagramType">
+         </diagramType>
+         <imageProvider
+            id="Edytor.diagram.EditorImageProvider">
+      	</imageProvider>
+      </diagramTypeProvider>
+   </extension>
+
+</plugin>

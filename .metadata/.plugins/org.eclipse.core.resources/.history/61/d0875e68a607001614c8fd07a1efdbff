@@ -1,0 +1,26 @@
+package edytorapp;
+
+import org.eclipse.ui.IPageLayout;
+import org.eclipse.ui.IPerspectiveFactory;
+
+public class Perspective implements IPerspectiveFactory {
+
+	public void createInitialLayout(IPageLayout layout) {
+		layout.setEditorAreaVisible(true);
+		String editorArea = layout.getEditorArea();
+		
+		
+		// Bottom left: Outline view and Property Sheet view
+		IFolderLayout bottomLeft = layout.createFolder("bottomLeft", IPageLayout.BOTTOM, 0.6f,editorArea);
+				 
+				 bottomLeft.addView(IPageLayout.ID_PROP_SHEET);
+				 bottomLeft.addView(IPageLayout.ID_PROBLEM_VIEW);
+
+				 layout.getViewLayout(IPageLayout.ID_PROP_SHEET).setMoveable(true);
+				 layout.getViewLayout(IPageLayout.ID_PROBLEM_VIEW).setMoveable(true);
+
+				 // Bottom right: Task List vie
+				 layout.setFixed(false);
+	}
+
+}

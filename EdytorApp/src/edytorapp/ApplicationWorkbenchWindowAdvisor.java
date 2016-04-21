@@ -1,5 +1,7 @@
 package edytorapp;
 
+import java.awt.Dimension;
+
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
@@ -19,7 +21,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-		configurer.setInitialSize(new Point(400, 300));
+		Dimension dim = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		configurer.setInitialSize(new Point((int)(dim.getWidth()*0.75), 
+		(int)(dim.getHeight()*0.75)));
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("RCP Application");

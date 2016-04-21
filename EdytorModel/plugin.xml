@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated edytorModel -->
+      <package
+            uri="http://www.example.org/edytorModel"
+            class="edytorModel.EdytorModelPackage"
+            genModel="model/edytorModel.genmodel"/>
+   </extension>
+
+</plugin>

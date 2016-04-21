@@ -1,0 +1,13 @@
+package edytor.diagram;
+
+import org.eclipse.graphiti.ui.platform.AbstractImageProvider;
+
+public class EditorImageProvider   extends AbstractImageProvider {
+
+	@Override
+	protected void addAvailableImages() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

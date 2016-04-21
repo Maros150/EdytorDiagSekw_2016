@@ -1,0 +1,73 @@
+package edytor.diagram;
+
+import org.eclipse.graphiti.dt.IDiagramTypeProvider;
+import org.eclipse.graphiti.features.ICreateConnectionFeature;
+import org.eclipse.graphiti.features.IDeleteFeature;
+import org.eclipse.graphiti.features.IDirectEditingFeature;
+import org.eclipse.graphiti.features.IReconnectionFeature;
+import org.eclipse.graphiti.features.context.IDeleteContext;
+import org.eclipse.graphiti.features.context.IDirectEditingContext;
+import org.eclipse.graphiti.features.context.IReconnectionContext;
+import org.eclipse.graphiti.mm.pictograms.Connection;
+import org.eclipse.graphiti.mm.pictograms.PictogramElement;
+import org.eclipse.graphiti.pattern.DefaultFeatureProviderWithPatterns;
+
+import edytor.features.CreateDomainObjectConnectionConnectionFeature;
+
+
+public class EdytorFeatureProvider extends DefaultFeatureProviderWithPatterns {
+
+	public EdytorFeatureProvider(IDiagramTypeProvider dtp) {
+		super(dtp);
+		//addPattern(new DomainObjectPattern());
+		//addConnectionPattern(new MetaDataConnectionPattern());
+	}
+
+	
+	 @Override
+	    public IReconnectionFeature getReconnectionFeature(IReconnectionContext context) {
+				Connection connection = (Connection) context.getConnection();
+				Object sourceElement = getBusinessObjectForPictogramElement(connection.getStart().getParent());
+				Object targetElement = getBusinessObjectForPictogramElement(connection.getEnd().getParent());
+				
+			/*	if ((sourceElement instanceof Container) && (targetElement instanceof Data))
+					return new ContainerToDataReconnectFeature(this);
+				else if((sourceElement instanceof Data) && (targetElement instanceof Data))
+			        return new DataReconnectFeature(this);
+				else*/
+					return super.getReconnectionFeature(context);
+	 }
+	
+	   @Override
+	    public IDeleteFeature getDeleteFeature(IDeleteContext context) {
+			PictogramElement pictogramElement = context.getPictogramElement();
+	    	if(pictogramElement instanceof Connection){
+				Connection connection = (Connection) pictogramElement;
+				Object sourceElement = getBusinessObjectForPictogramElement(connection.getStart().getParent());
+				Object targetElement = getBusinessObjectForPictogramElement(connection.getEnd().getParent());
+				
+			/*	if ((sourceElement instanceof Data) && (targetElement instanceof Data))
+					return new DataDeleteConnectionFeature(this);
+				else if((sourceElement instanceof Container) && (targetElement instanceof Data))
+					return new ContainerToDataDeleteFeature(this);
+			*/
+	    	}
+	    	return super.getDeleteFeature(context);
+	    }	
+	
+	@Override
+	public ICreateConnectionFeature[] getCreateConnectionFeatures() {
+		return new ICreateConnectionFeature[] {new CreateDomainObjectConnectionConnectionFeature(this)};
+	}
+	
+    @Override
+    public IDirectEditingFeature getDirectEditingFeature(
+        IDirectEditingContext context) {
+        PictogramElement pe = context.getPictogramElement();
+        Object bo = getBusinessObjectForPictogramElement(pe);
+        /*if (bo instanceof EObject) {
+            return new DirectEditEObjectFeature(this);
+        }*/
+        return super.getDirectEditingFeature(context);
+     } 
+}

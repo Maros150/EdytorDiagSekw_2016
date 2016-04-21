@@ -1,0 +1,7 @@
+package edytor.diagram;
+
+public class EdytorToolBehaviorProvider extends DefaultToolBehaviorProvider{
+	public EdytorToolBehaviorProvider(IDiagramTypeProvider dtp) {
+        super(dtp);
+   }
+}
