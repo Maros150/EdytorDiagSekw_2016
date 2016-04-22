@@ -31,4 +31,48 @@
 		     id="edytor.diagram.EditorImageProvider">
 		</imageProvider>
 	</extension> 
+	
+	
+	
+	<extension
+	    point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+	    <propertyContributor contributorId="editor.PropertyContributor"> 
+	        <propertyCategory category="Graphiti"> 
+	        </propertyCategory> 
+	    </propertyContributor> 
+	</extension>
+       
+	 <extension
+	      point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	    <propertyTabs
+	          contributorId="editor.PropertyContributor">
+	    <propertyTab
+	         category="Graphiti"
+	         id="graphiti.main.tab"
+	          label="Main">
+	    </propertyTab>
+	    <propertyTab
+	         category="Graphiti"
+	         id="graphiti.properties.tab"
+	         label="Properties">
+	    </propertyTab>
+	   </propertyTabs>
+	</extension>
+     
+	 <extension
+	      point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	    <propertySections
+	          contributorId="editor.PropertyContributor">
+	        <propertySection
+	              class="edytor.property.EdytorClassSection"
+	              filter="edytor.property.EdytorClassFilter"
+	              id="graphiti.main.tab.class"
+	              tab="graphiti.main.tab">
+	        </propertySection>
+	       
+	    </propertySections>
+	 </extension>
+	
+	
+	
 </plugin>

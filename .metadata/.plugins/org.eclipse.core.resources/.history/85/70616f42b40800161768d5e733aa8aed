@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            name="Edytor Diagram Type"
+            type="edytor"
+            id="Edytor.EdytorDiagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            name="Edytor Diagram Type Provider"
+            class="edytor.diagram.EdytorDiagramTypeProvider"
+            id="Edytor.EdytorDiagramTypeProvider">
+         <diagramType
+               id="Edytor.EdytorDiagramType">
+         </diagramType>
+         <imageProvider
+            id="edytor.diagram.EditorImageProvider">
+      	</imageProvider>
+      </diagramTypeProvider>
+   </extension>
+	<extension
+		point="org.eclipse.graphiti.ui.imageProviders">
+		<imageProvider
+		     class="edytor.diagram.EditorImageProvider"
+		     id="edytor.diagram.EditorImageProvider">
+		</imageProvider>
+	</extension> 
+	
+	
+	
+	<extension
+	    point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+	    <propertyContributor contributorId="editor.PropertyContributor"> 
+	        <propertyCategory category="Graphiti"> 
+	        </propertyCategory> 
+	    </propertyContributor> 
+	</extension>
+       
+	 <extension
+	      point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	    <propertyTabs
+	          contributorId="editor.PropertyContributor">
+	    <propertyTab
+	         category="Graphiti"
+	         id="graphiti.main.tab"
+	          label="Main">
+	    </propertyTab>
+	    <propertyTab
+	         category="Graphiti"
+	         id="graphiti.properties.tab"
+	         label="Properties">
+	    </propertyTab>
+	   </propertyTabs>
+	</extension>
+     
+	 <extension
+	      point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	    <propertySections
+	          contributorId="editor.PropertyContributor">
+	        <propertySection
+	              class="edytor.property.EdytorClassSection"
+	              filter="edytor.property.EdytorClassFilter"
+	              id="graphiti.main.tab.data"
+	              tab="graphiti.main.tab">
+	        </propertySection>
+	       
+	    </propertySections>
+	 </extension>
+	
+	
+	
+</plugin>

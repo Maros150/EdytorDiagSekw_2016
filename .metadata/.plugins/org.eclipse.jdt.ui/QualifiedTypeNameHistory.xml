@@ -36,4 +36,5 @@
 <fullyQualifiedTypeName name="edytorModel.Class"/>
 <fullyQualifiedTypeName name="org.eclipse.graphiti.features.impl.Reason"/>
 <fullyQualifiedTypeName name="edytor.features.ClassPattern"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
 </qualifiedTypeNameHistroy>
